@@ -1,7 +1,9 @@
 :root {
   --textColor: #444444;
   --backgroundColor: #ffffff;
-  --appColor: #dc4c4f;
+  --appColor: #10b981;
+  --appColorLight: #d1fae5;
+  --appColorDark: #059669;
 }
 
 * {
@@ -16,79 +18,295 @@ video {
   max-width: 100%;
 }
 
-.video-iframe-wrapper {
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%; /*This gives it a 16x9 ratio*/
-}
-
-.video-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
 body {
-  display: grid;
-  height: 98vh;
-  grid-template-rows: 1fr auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: var(--backgroundColor);
+  margin: 0;
+  padding: 0;
 }
 
 main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 1400px) {
+  main {
+    max-width: 1000px;
+  }
+}
+
+/* Hero Section */
+.hero {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
   align-items: center;
+  min-height: 80vh;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.hero-image {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.hero-image img {
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.hero-content {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin: 0 0 0.2em 0;
+  color: var(--textColor);
+}
+
+.tagline {
+  font-size: 1.4em;
+  color: var(--appColor);
+  font-weight: 600;
+  margin: 0 0 0.5em 0;
+}
+
+.subtitle {
+  font-size: 1.1em;
+  color: var(--textColor);
+  margin: 0 0 1.5em 0;
+}
+
+.store-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.store-buttons img {
+  height: 40px;
+  width: auto;
+}
+
+/* Problem Statement */
+.problem-statement {
+  background-color: var(--appColorLight);
+  border-left: 4px solid var(--appColor);
+  padding: 24px 32px;
+  margin: 40px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.problem-statement p {
+  font-size: 1.2em;
+  font-style: italic;
+  color: var(--textColor);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Feature Showcase Section */
+.feature-showcase {
+  padding: 60px 0;
+}
+
+.feature-showcase h2 {
+  text-align: center;
+  font-size: 2em;
+  color: var(--textColor);
+  margin-bottom: 60px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.feature-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.feature-item-image {
+  flex: 0 0 280px;
+  max-width: 280px;
+}
+
+.feature-item-image img {
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item-content {
+  flex: 1;
+}
+
+.feature-item-content h3 {
+  color: var(--appColor);
+  font-size: 1.5em;
+  margin: 0 0 12px 0;
+}
+
+.feature-item-content p {
+  color: var(--textColor);
+  font-size: 1.1em;
+  line-height: 1.6;
   margin: 0;
 }
 
-.box {
-  flex: 1 1 292px;
-  max-width: 400px;
-  padding: 20px;
+/* Simple Features Grid (for features without images) */
+.features-simple {
+  padding: 40px 0;
 }
 
-.bigBox {
-  flex: 1 1 292px;
-  max-width: 800px;
-  padding: 20px;
+.features-simple h2 {
+  text-align: center;
+  font-size: 1.6em;
+  color: var(--textColor);
+  margin-bottom: 30px;
 }
 
-.button-border {
-  border: 2px solid var(--textColor);
-  border-radius: 4px;
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
 
-.new-paragraph {
-  padding-top: 16px;
+.feature-card {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #eee;
+}
+
+.feature-card h3 {
   color: var(--appColor);
+  font-size: 1.1em;
+  margin: 0 0 8px 0;
 }
 
-header {
-  padding: 2rem;
+.feature-card p {
+  color: var(--textColor);
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin: 0;
 }
 
+/* Badges Section */
+.badges {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.badges h2 {
+  font-size: 1.4em;
+  color: var(--textColor);
+  margin-bottom: 20px;
+}
+
+.badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.badge {
+  background: var(--appColorLight);
+  color: var(--appColorDark);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* Works Everywhere Section */
+.works-everywhere {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.works-everywhere h2 {
+  font-size: 1.8em;
+  color: var(--textColor);
+  margin-bottom: 40px;
+}
+
+.platform-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  align-items: flex-end;
+}
+
+.platform-image {
+  flex: 1 1 300px;
+  max-width: 420px;
+}
+
+.platform-image img {
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.platform-image p {
+  margin-top: 12px;
+  font-size: 0.95em;
+  color: var(--textColor);
+}
+
+/* Founder CTA */
+.founder-cta {
+  background: linear-gradient(135deg, var(--appColorLight) 0%, #f0fdf4 100%);
+  border-radius: 16px;
+  padding: 40px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.founder-cta p {
+  font-size: 1.1em;
+  color: var(--textColor);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+
+.founder-cta a {
+  color: var(--appColor);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.founder-cta a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
 footer {
-  padding: 2rem;
+  padding: 40px 20px;
   text-align: center;
   font-weight: 500;
   color: var(--textColor);
 }
 
 .footer-link {
-  font-size: 0.8rem; /* Makes the text smaller */
-  color: var(--appColor); /* Uses your app color variable */
-  text-decoration: none; /* Removes the default underline */
+  font-size: 0.85em;
+  color: var(--appColor);
+  text-decoration: none;
 }
 
 .footer-link:hover {
-  text-decoration: underline; /* Adds underline on hover */
+  text-decoration: underline;
 }
 
 p {
@@ -101,21 +319,45 @@ a {
   text-decoration: none;
 }
 
-h1 {
-  font-size: 2em;
-  font-size: 8vw;
-  margin: 0.33em 0 0.33em 0;
-  color: var(--textColor);
-}
-
-@media screen and (min-width: 600px) {
-  h1 {
-    font-size: 4.5vw;
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 20px 0;
   }
-}
 
-@media screen and (min-width: 992px) {
-  h1 {
-    font-size: 3em;
+  .hero h1 {
+    font-size: 2.2em;
+  }
+
+  .tagline {
+    font-size: 1.2em;
+  }
+
+  .feature-item {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .feature-item-image {
+    flex: 0 0 auto;
+    max-width: 220px;
+  }
+
+  .feature-showcase h2 {
+    margin-bottom: 40px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-statement {
+    padding: 20px 24px;
+  }
+
+  .founder-cta {
+    padding: 30px 20px;
   }
 }
