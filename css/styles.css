@@ -83,6 +83,15 @@ main {
   margin: 0 0 1.5em 0;
 }
 
+.subtitle a {
+  color: var(--appColor);
+  text-decoration: underline;
+}
+
+.subtitle a:hover {
+  color: var(--appColorDark);
+}
+
 .store-buttons {
   display: flex;
   flex-wrap: wrap;
